@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PacMan : MonoBehaviour{
-    private const Vector3 up = Vector3.forward;
-    private const Vector3 down = Vector3.back;
-    private const Vector3 left = Vector3.left;
-    private const Vector3 right = Vector3.right;
-    public const int totalPellets = 20;        // Fill in when the board is done      
+    private static Vector3 up = Vector3.forward;
+    private static Vector3 down = Vector3.forward * -1;
+    private static Vector3 left = Vector3.left;
+    private static Vector3 right = Vector3.left * -1;
+    public static int totalPellets = 20;        // Fill in when the board is done      
 
     
     public int remainingLives;          // If remainingLives is 0, game over
@@ -20,7 +20,7 @@ public class PacMan : MonoBehaviour{
     private void MoveToStart(){
         // Fill in when board is finished
         int xStartPosition = 0;
-        int yStartPosition = 0;
+        int yStartPosition = 2;
         int zStartPosition = 0;
         
         transform.position = new Vector3(xStartPosition, yStartPosition, zStartPosition);
@@ -30,7 +30,7 @@ public class PacMan : MonoBehaviour{
     private void InitializePacMan(){
         MoveToStart();
         currentDirection = up;
-        SetDirection(currentDirection);
+        SetCurrentDirection(currentDirection);
         isPoweredUp = false;
         canMoveForward = true;
     }
